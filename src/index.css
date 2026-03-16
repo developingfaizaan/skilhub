@@ -1,0 +1,87 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-base: #050505;
+  --color-surface: #0A0A0A;
+  --color-elevated: #111111;
+  --color-accent-primary: #C4B5FD;
+  --color-accent-secondary: #8B5CF6;
+  --color-border-subtle: #1A1A1A;
+  --color-text-primary: #F9FAFB;
+  --color-text-muted: #71717A;
+  --color-tag-bg: #141414;
+  --color-hover-state: #0F0F0F;
+
+  --radius-card: 12px;
+}
+
+@layer base {
+  body {
+    @apply bg-base text-text-primary font-sans antialiased selection:bg-accent-primary/30 selection:text-accent-primary;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-base;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border-subtle rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-text-muted;
+  }
+}
+
+@layer components {
+  .developer-card {
+    @apply bg-surface border border-border-subtle rounded-card overflow-hidden transition-all duration-300;
+  }
+
+  .developer-card-interactive {
+    @apply bg-surface border border-border-subtle rounded-card overflow-hidden transition-all duration-300 hover:border-accent-primary/50 hover:bg-hover-state hover:shadow-[0_0_30px_rgba(196,181,253,0.08)] cursor-pointer;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-b from-accent-primary to-accent-secondary text-black font-bold px-5 py-2.5 rounded-md transition-all active:scale-95 hover:brightness-110 hover:shadow-[0_0_20px_rgba(196,181,253,0.4)] cursor-pointer;
+  }
+
+  .btn-secondary {
+    @apply bg-white/5 text-text-primary border border-white/10 px-5 py-2.5 rounded-md font-medium transition-all active:scale-95 hover:bg-white/10 hover:border-white/20 cursor-pointer;
+  }
+
+  .input-field {
+    @apply bg-elevated border border-border-subtle rounded-lg px-4 py-2 text-text-primary focus:outline-none focus:ring-2 focus:ring-accent-primary/30 transition-all;
+  }
+
+  .nav-item {
+    @apply cursor-pointer;
+  }
+
+  .accent-gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-b from-accent-primary to-accent-secondary;
+  }
+}
+
+.page-enter {
+  animation: pageEnter 0.4s ease-out forwards;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
