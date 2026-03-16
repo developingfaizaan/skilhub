@@ -98,17 +98,17 @@ export default function App() {
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row items-center gap-4 w-full max-w-sm sm:max-w-none px-4">
+              <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto px-4">
                 <button 
                   onClick={() => setCurrentPage('explore')}
-                  className="btn-primary flex items-center gap-2 w-full sm:px-8 justify-center"
+                  className="btn-primary flex items-center gap-2 w-full sm:w-auto sm:px-8 justify-center"
                 >
                   <Terminal size={18} />
                   <span>Browse Registry</span>
                 </button>
                 <button 
                   onClick={() => setCurrentPage('submit')}
-                  className="btn-secondary w-full sm:px-8"
+                  className="btn-secondary w-full sm:w-auto sm:px-8"
                 >
                   Publish Skill
                 </button>
